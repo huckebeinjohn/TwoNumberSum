@@ -45,7 +45,7 @@ public class App {
                 storedNums.add(num); //No luck, store the num into HashSet.
             }
         }
-        System.out.println("twoNumberSum2 test result: Match not found.");
+        System.out.println("twoNumberSum2 test result: Match not found....");
         return new int[0];
     }
 }
