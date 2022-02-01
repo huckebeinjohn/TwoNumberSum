@@ -2,13 +2,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.plaf.synth.SynthSplitPaneUI;
+
 public class App {
     public static void main(String[] args) throws Exception {
         int[] testingArrays = {3,5,-4,8,11,1,-1,6};
+        int[] testingArrays2 = {11,8,1,3,5,6,-1,-4};
         int testingTarget = 10;
+        int testingTarget2 = 13;
 
         twoNumberSum1(testingArrays, testingTarget);
         twoNumberSum2(testingArrays, testingTarget);
+        twoNumberSum3(testingArrays2, testingTarget2);
     }
 
     //This is the double for loop.
@@ -48,6 +53,31 @@ public class App {
             }
         }
         System.out.println("twoNumberSum2 test result: Match not found....");
+        return new int[0];
+    }
+
+    //Using left and right pointers to get the result.
+    public static int[] twoNumberSum3(int[] randomArray, int targetNumber){
+        Arrays.sort(randomArray);
+        System.out.println("Input arrays sorted: " + Arrays.toString(randomArray));
+
+        int leftPointer = 0;
+        int rightPointer = randomArray.length-1;
+
+        while(leftPointer<rightPointer){
+            int currentSum=randomArray[leftPointer]+randomArray[rightPointer];
+            System.out.println("currentSum: " + currentSum);
+            if(currentSum==targetNumber){
+                int[] result = {randomArray[leftPointer],randomArray[rightPointer]};
+                System.out.println("twoNumberSum3 test result: Match found-- "+Arrays.toString(result));
+                return result;
+            }else if(currentSum<targetNumber){
+                leftPointer++;
+            }else if(currentSum>targetNumber){
+                rightPointer--;
+            }
+        }
+        System.out.println("twoNumberSum3 test result: Match not found.");
         return new int[0];
     }
 }
