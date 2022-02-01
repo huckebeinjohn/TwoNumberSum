@@ -14,6 +14,7 @@ public class App {
     //This is the double for loop.
     //O(n^2) time | O(1) space
     //This is the testing message from pc.
+    //This is the testing message from mac. 
     public static int[] twoNumberSum1(int[] randomArray, int targetNumber){
         
         for(int i=0; i<randomArray.length-1; i++){
